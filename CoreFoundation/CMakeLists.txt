@@ -180,7 +180,6 @@ add_framework(CoreFoundation
                 # URL
                 URL.subproj/CFURL.inc.h
                 URL.subproj/CFURLPriv.h
-                URL.subproj/CFURLSessionInterface.h
               PUBLIC_HEADERS
                 # FIXME: PrivateHeaders referenced by public headers
                 Base.subproj/CFKnownLocations.h
@@ -202,7 +201,6 @@ add_framework(CoreFoundation
                 StringEncodings.subproj/CFStringEncodingConverter.h
                 StringEncodings.subproj/CFStringEncodingConverterExt.h
                 URL.subproj/CFURLPriv.h
-                URL.subproj/CFURLSessionInterface.h
                 Locale.subproj/CFDateIntervalFormatter.h
 
                 # AppServices

@@ -10,6 +10,8 @@
 	The logs below are brief overviews of modifications made to this file:
 
 	    Samuel Zormeister (1/7/2026) - Fix TARGET_RT64_BIT to be TARGET_RT_64_BIT.
+
+		Samuel Zormeister (1/7/2026) - Enable CFXML<Parser, Node> on DEPLOYMENT_RUNTIME_C
 */
 
 #define ENABLE_ZOMBIES 1
@@ -222,7 +224,7 @@ static CFRuntimeClass const * __CFRuntimeClassTable[__CFRuntimeClassTableSize] _
     [_kCFRuntimeIDCFTimeZone] = &__CFTimeZoneClass,
     [_kCFRuntimeIDCFKeyedArchiverUID] = &__CFKeyedArchiverUIDClass,
 
-#if TARGET_OS_OSX
+#if TARGET_OS_OSX || DEPLOYMENT_RUNTIME_C
     [_kCFRuntimeIDCFXMLParser] = &__CFXMLParserClass,
     [_kCFRuntimeIDCFXMLNode] = &__CFXMLNodeClass,
 #endif // TARGET_OS_OSX

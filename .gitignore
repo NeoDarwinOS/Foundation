@@ -1,2 +1,8 @@
 build
 .cache
+
+CMakeCache.txt
+CMakeFiles/
+CoreFoundation.framework/
+Makefile
+cmake_install.cmake

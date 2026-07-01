@@ -7,7 +7,7 @@
 // See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
 //
 
-#include <CoreFoundation/CFAsmMacros.h>
+#include "CFAsmMacros.h"
 
 #if defined(__ELF__)
 .section .rodata

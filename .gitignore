@@ -6,3 +6,7 @@ CMakeFiles/
 CoreFoundation.framework/
 Makefile
 cmake_install.cmake
+.DS_Store
+Foundation.xcodeproj/project.xcworkspace
+Foundation.xcodeproj/xcshareddata
+Foundation.xcodeproj/xcuserdata

@@ -12,6 +12,8 @@
 	    Samuel Zormeister (1/7/2026) - Fix TARGET_RT64_BIT to be TARGET_RT_64_BIT.
 
 		Samuel Zormeister (1/7/2026) - Enable CFXML<Parser, Node> on DEPLOYMENT_RUNTIME_C
+ 
+        Samuel Zormeister (2/7/2026) - Implement proper Objective-C object checking under DEPLOYMENT_RUNTIME_OBJC (CF_IS_OBJC)
 */
 
 #define ENABLE_ZOMBIES 1
@@ -320,6 +322,15 @@ CFTypeID _CFRuntimeRegisterClass(const CFRuntimeClass * const cls) {
     return typeID;
 }
 
+#if DEPLOYMENT_RUNTIME_OBJC
+void _CFRuntimeBridgeClasses(CFTypeID cf_typeID, const char *cls_name) {
+    __CFLock(&__CFBigRuntimeFunnel);
+    Class cls_ref = objc_getFutureClass(cls_name);
+    __CFRuntimeObjCClassTable[cf_typeID] = (uintptr_t)cls_ref;
+    __CFUnlock(&__CFBigRuntimeFunnel);
+}
+#endif
+
 void _CFRuntimeBridgeTypeToClass(CFTypeID cf_typeID, const void *cls_ref) {
     __CFLock(&__CFBigRuntimeFunnel);
     __CFRuntimeObjCClassTable[cf_typeID] = (uintptr_t)cls_ref;
@@ -526,7 +537,12 @@ CFTypeRef _CFRuntimeCreateInstance(CFAllocatorRef allocator, CFTypeID typeID, CF
         memory->_cfinfoa = (uint32_t)((1 << 24) | typeIDMasked | usesDefaultAllocatorMasked);
     }
 #endif
+
+#if DEPLOYMENT_RUNTIME_OBJC
+    object_setClass((id)memory, (Class)__CFISAForTypeID(typeID));
+#else
     memory->_cfisa = __CFISAForTypeID(typeID);
+#endif
     if (NULL != cls->init) {
 	(cls->init)(memory);
     }
@@ -565,6 +581,11 @@ void _CFRuntimeInitStaticInstance(void *ptr, CFTypeID typeID) {
     }
 #endif
     memory->_cfisa = 0;
+#if DEPLOYMENT_RUNTIME_OBJC
+    object_setClass((id)memory, (Class)__CFISAForTypeID(typeID));
+#else
+    memory->_cfisa = __CFISAForTypeID(typeID);
+#endif
     if (NULL != cfClass->init) {
        (cfClass->init)(memory);
     }
@@ -704,10 +725,21 @@ CF_INLINE Boolean CFTYPE_IS_SWIFT(const void *obj) {
 
 #endif
 
+#if DEPLOYMENT_TARGET_OBJC
+
+/* TODO: these */
 
 #define CFTYPE_IS_OBJC(obj) (false)
 #define CFTYPE_OBJC_FUNCDISPATCH0(rettype, obj, sel) do {} while (0)
 #define CFTYPE_OBJC_FUNCDISPATCH1(rettype, obj, sel, a1) do {} while (0)
+
+#else
+
+#define CFTYPE_IS_OBJC(obj) (false)
+#define CFTYPE_OBJC_FUNCDISPATCH0(rettype, obj, sel) do {} while (0)
+#define CFTYPE_OBJC_FUNCDISPATCH1(rettype, obj, sel, a1) do {} while (0)
+
+#endif
 
 
 CFTypeID CFGetTypeID(CFTypeRef cf) {

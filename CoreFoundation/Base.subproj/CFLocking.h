@@ -5,6 +5,11 @@
 	Licensed under Apache License v2.0 with Runtime Library Exception
 	See http://swift.org/LICENSE.txt for license information
 	See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+ 
+    The logs below are brief overviews of modifications made to this file:
+
+        Samuel Zormeister (2/7/2026) - Use system TargetConditionals.h when under DEPLOYMENT_RUNTIME_OBJC
+
 */
 
 /*
@@ -14,7 +19,11 @@
 #if !defined(__COREFOUNDATION_CFLOCKING_H__)
 #define __COREFOUNDATION_CFLOCKING_H__ 1
 
+#if DEPLOYMENT_RUNTIME_C || DEPLOYMENT_RUNTIME_SWIFT
 #include <CoreFoundation/TargetConditionals.h>
+#else
+#include <TargetConditionals.h>
+#endif
 
 #if TARGET_OS_MAC
 

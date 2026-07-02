@@ -11,6 +11,9 @@
 	    Samuel Zormeister (1/7/2026) - Define an opaque DECLARE_STATIC_CLASS_REF macro for non-ObjC and non-Swift builds.
 
 		Samuel Zormeister (1/7/2026) - Create definitions for _CFThreadSpecificKey and other thread variables.
+ 
+        Samuel Zormeister (2/7/2026) - Add Objective-C class referencing, and additionally define NSFormattingError for
+                                       DEPLOYMENT_RUNTIME_OBJC
 */
 
 // The header file ForFoundationOnly.h is for the exclusive use of the
@@ -706,12 +709,27 @@ CF_EXPORT void *_CFCreateArrayStorage(size_t numPointers, Boolean zeroed, size_t
 #define DECLARE_STATIC_CLASS_REF(CLASSNAME) extern void STATIC_CLASS_NAME_CONCAT(STATIC_CLASS_PREFIX, STATIC_CLASS_NAME(CLASSNAME))
 #define STATIC_CLASS_REF(CLASSNAME) &(STATIC_CLASS_NAME_CONCAT(STATIC_CLASS_PREFIX, STATIC_CLASS_NAME(CLASSNAME)))
 
+#elif DEPLOYMENT_TARGET_OBJC
+
+#define STATIC_CLASS_PREFIX OBJC_CLASS_$_
+
+#define STATIC_CLASS_NAME_CONCAT_INNER(x,y) x ## y
+#define STATIC_CLASS_NAME_CONCAT(x,y) STATIC_CLASS_NAME_CONCAT_INNER(x,y)
+
+#define DECLARE_STATIC_CLASS_REF(classname) extern void STATIC_CLASS_NAME_CONCAT(STATIC_CLASS_PREFIX, classname)
+#define STATIC_CLASS_REF(CLASSNAME) &(STATIC_CLASS_NAME_CONCAT(STATIC_CLASS_PREFIX, classname))
+
 #else // if !DEPLOYMENT_RUNTIME_SWIFT
 
 // We don't need static class refs if CF is used standalone, as there's no Swift or ObjC runtime to interoperate with.
 #define STATIC_CLASS_REF(...) NULL
 #define DECLARE_STATIC_CLASS_REF(...)
 
+#endif
+
+
+#if DEPLOYMENT_RUNTIME_OBJC
+#define NSFormattingError 2048
 #endif
 
 

@@ -9,6 +9,8 @@
 	The logs below are brief overviews of modifications made to this file:
 
 	    Samuel Zormeister (1/7/2026) - Declare _CFIsMainThread on Linux
+ 
+        Samuel Zormeister (2/7/2026) - Implement proper Objective-C object checking under DEPLOYMENT_RUNTIME_OBJC
 */
 
 /*
@@ -758,10 +760,51 @@ CF_INLINE uintptr_t __CFISAForTypeID(CFTypeID typeID) {
     return (typeID < __CFRuntimeClassTableSize) ? __CFRuntimeObjCClassTable[typeID] : 0;
 }
 
+#if DEPLOYMENT_RUNTIME_OBJC
+#include <objc/objc-abi.h>
+#include <objc/objc-internal.h>
+
+/* clang is not playing nicely so we need this. */
+extern const uintptr_t objc_debug_isa_class_mask;
+
+/*
+ * Objective-C is a weird ABI.
+ */
+CF_INLINE Boolean CF_IS_OBJC(CFTypeID typeId, const void *obj)
+{
+    /* check that the object is a tagged pointer first */
+    if (_objc_isTaggedPointer(obj)) {
+        return true;
+    } else {
+        uintptr_t objIsa = (((const CFRuntimeBase *)obj)->_cfisa);
+        
+        if (objIsa && ((void *)objIsa) != __CFConstantStringClassReferencePtr) {
+            uintptr_t tidIsa = __CFISAForTypeID(typeId);
+            if (objIsa == tidIsa) {
+                return false;
+            } else {
+#if OBJC_HAVE_NONPOINTER_ISA
+                /* Non-pointer ISAs use bit 0 to indicate a nonpointer ISA. */
+                if (objIsa & 0x1) {
+                    return (objIsa & objc_debug_isa_class_mask) != 0;
+                }
+#endif
+            }
+        } else {
+            return false;
+        }
+    }
+    
+    return false;
+}
 
 #define CF_OBJC_FUNCDISPATCHV(typeID, obj, ...) do { } while (0)
 #define CF_OBJC_CALLV(obj, ...) (0)
+#else
+#define CF_OBJC_FUNCDISPATCHV(typeID, obj, ...) do { } while (0)
+#define CF_OBJC_CALLV(obj, ...) (0)
 #define CF_IS_OBJC(typeID, obj) (0)
+#endif
 
 /* See comments in CFBase.c
 */

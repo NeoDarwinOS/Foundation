@@ -26,6 +26,16 @@
     #define __has_feature(x) 0
 #endif
 
+#if !defined(FOUNDATION_EXTERN)
+    #if __cplusplus
+        #define FOUNDATION_EXTERN extern "C"
+    #else
+        #define FOUNDATION_EXTERN extern
+    #endif
+#endif
+
+#define FOUNDATION_EXPORT FOUNDATION_EXTERN
+
 /*
  * XX_ENUM & XX_OPTIONS macros, courtesy of CoreFoundation
  */

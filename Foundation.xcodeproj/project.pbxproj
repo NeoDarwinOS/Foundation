@@ -211,6 +211,8 @@
 		F0D7BDBB2FF61DC2002F2E15 /* __NSCFType.h in Headers */ = {isa = PBXBuildFile; fileRef = F0D7BDBA2FF61DC2002F2E15 /* __NSCFType.h */; };
 		F0D7BDC22FF649BF002F2E15 /* __NSCFType.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D7BDC12FF649BF002F2E15 /* __NSCFType.m */; };
 		F0D7BDC32FF649DA002F2E15 /* NSObject.h in Headers */ = {isa = PBXBuildFile; fileRef = F0D7BDBC2FF6348B002F2E15 /* NSObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F0D7BDC62FF68D44002F2E15 /* NSZone.h in Headers */ = {isa = PBXBuildFile; fileRef = F0D7BDC52FF68C6E002F2E15 /* NSZone.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F0D7BDC82FF68D82002F2E15 /* NSZone.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D7BDC72FF68D82002F2E15 /* NSZone.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -443,6 +445,8 @@
 		F0D7BDBF2FF63A02002F2E15 /* module.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.map; sourceTree = "<group>"; };
 		F0D7BDC02FF63A02002F2E15 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		F0D7BDC12FF649BF002F2E15 /* __NSCFType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = __NSCFType.m; sourceTree = "<group>"; };
+		F0D7BDC52FF68C6E002F2E15 /* NSZone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSZone.h; sourceTree = "<group>"; };
+		F0D7BDC72FF68D82002F2E15 /* NSZone.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSZone.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -877,6 +881,8 @@
 				F0D7BDAA2FF604D6002F2E15 /* FoundationErrors.h */,
 				F0D7BDA92FF5E3D0002F2E15 /* NSObjCRuntime.h */,
 				F0D7BDBC2FF6348B002F2E15 /* NSObject.h */,
+				F0D7BDC52FF68C6E002F2E15 /* NSZone.h */,
+				F0D7BDC72FF68D82002F2E15 /* NSZone.m */,
 			);
 			path = Runtime.subproj;
 			sourceTree = "<group>";
@@ -1024,6 +1030,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0D7BDC32FF649DA002F2E15 /* NSObject.h in Headers */,
+				F0D7BDC62FF68D44002F2E15 /* NSZone.h in Headers */,
 				F0D7BDAC2FF60576002F2E15 /* FoundationErrors.h in Headers */,
 				F0D7BDAB2FF60571002F2E15 /* NSObjCRuntime.h in Headers */,
 				F0D7BDB62FF60CB9002F2E15 /* NSAttributedString.h in Headers */,
@@ -1230,6 +1237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0D7BDC82FF68D82002F2E15 /* NSZone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

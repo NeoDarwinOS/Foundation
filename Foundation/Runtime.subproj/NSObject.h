@@ -11,6 +11,12 @@
 
 #import <objc/NSObject.h>
 #import <Foundation/NSObjCRuntime.h>
+#import <Foundation/NSZone.h>
 
+@protocol NSCopying
+
+- (id) copyWithZone:(NSZone *) zone;
+
+@end
 
 #endif /* ! __FOUNDATION_NSOBJECT__ */

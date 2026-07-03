@@ -11,6 +11,8 @@
 	    Samuel Zormeister (1/7/2026) - Declare _CFIsMainThread on Linux
  
         Samuel Zormeister (2/7/2026) - Implement proper Objective-C object checking under DEPLOYMENT_RUNTIME_OBJC
+ 
+        Samuel Zormeister (3/7/2026) - More ObjC work - to be finished.
 */
 
 /*
@@ -786,7 +788,7 @@ CF_INLINE Boolean CF_IS_OBJC(CFTypeID typeId, const void *obj)
 #if OBJC_HAVE_NONPOINTER_ISA
                 /* Non-pointer ISAs use bit 0 to indicate a nonpointer ISA. */
                 if (objIsa & 0x1) {
-                    return (objIsa & objc_debug_isa_class_mask) != 0;
+                    return (objIsa & objc_debug_isa_class_mask) != tidIsa;
                 }
 #endif
             }
@@ -798,8 +800,21 @@ CF_INLINE Boolean CF_IS_OBJC(CFTypeID typeId, const void *obj)
     return false;
 }
 
+#if __OBJC__
+#define CF_OBJC_FUNCDISPATCHV(typeID, rettype, obj, sel, ...) \
+    if (CF_IS_OBJC(typeID, obj)) {                  \
+        return [obj sel __VA_ARGS__]; \
+    }
+#else
 #define CF_OBJC_FUNCDISPATCHV(typeID, obj, ...) do { } while (0)
+#endif
+
+#if __OBJC__
+#define CF_OBJC_CALLV(obj, ...) [obj __VA_ARGS__]
+#else
 #define CF_OBJC_CALLV(obj, ...) (0)
+#endif
+
 #else
 #define CF_OBJC_FUNCDISPATCHV(typeID, obj, ...) do { } while (0)
 #define CF_OBJC_CALLV(obj, ...) (0)

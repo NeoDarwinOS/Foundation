@@ -8,6 +8,9 @@
 
 #import "__NSCFType.h"
 
+#import <objc/objc-abi.h>
+#import <objc/objc-internal.h>
+
 #pragma mark - __NSCFType
 
 @implementation __NSCFType
@@ -21,9 +24,45 @@
         return TRUE;
     }
     
-    /* Using the public CF functions requires me to bridge them. I'll fix it eventually. */
+    return _CFNonObjCEqual(self, object);
+}
+
+- (BOOL) _tryRetain {
+    return _CFTryRetain(self) != NULL;
+}
+
+- (BOOL) _isDeallocating {
+    return _CFIsDeallocating(self);
+}
+
+- (NSUInteger) retainCount {
+    return CFGetRetainCount(self);
+}
+
+- (id) retain {
+    return _CFNonObjCRetain(self);
+}
+
+- (void) release {
+    _CFNonObjCRelease(self);
+}
+
+- (NSUInteger) hash {
+    return _CFNonObjCHash(self);
+}
+
+- (void) dealloc {
+    /* do nothing since we're technically managed by CF and not objc */
+}
+
+/* should this be coupled with an ARC invocation? */
+- (NSString *) description {
+    NSString *string = (NSString *)CFCopyDescription(self);
     
-    return FALSE;
+    /* ARC is disabled for us, so we need to manually ask objc to autorelease our object. */
+    objc_autorelease(string);
+    
+    return string;
 }
 
 @end
@@ -34,7 +73,7 @@
 @implementation NSObject (__NSCFType)
 
 - (CFTypeID) _cfTypeID {
-    return _kCFRuntimeIDCFType;
+    return CFTypeGetTypeID();
 }
 
 @end

@@ -9,7 +9,7 @@
 #ifndef __NSCFType_h
 #define __NSCFType_h
 
-#include "CFRuntime_Internal.h"
+#include "ForFoundationOnly.h"
 #import <Foundation/NSObject.h>
 
 /*

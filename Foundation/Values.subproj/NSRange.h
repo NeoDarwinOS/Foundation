@@ -6,8 +6,14 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-#if !defined(__FOUNDATION_NSSTRING__)
-#define __FOUNDATION_NSSTRING__ 1
+#if !defined(__FOUNDATION_NSRANGE__)
+#define __FOUNDATION_NSRANGE__ 1
 
+#import <Foundation/NSObjCRuntime.h>
 
-#endif /* ! __FOUNDATION_NSSTRING__ */
+typedef struct _NSRange {
+    NSUInteger location;
+    NSUInteger length;
+} NSRange;
+
+#endif /* ! __FOUNDATION_NSRANGE__ */

@@ -6,8 +6,13 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-#if !defined(__FOUNDATION_NSSTRING__)
-#define __FOUNDATION_NSSTRING__ 1
+#import <Foundation/NSObjCRuntime_Private.h>
+#import "ForFoundationOnly.h"
 
+extern void __CFInitialize(void);
 
-#endif /* ! __FOUNDATION_NSSTRING__ */
+void _NSInitializeFoundation(void)
+{
+    /* Just in case CF hasn't woken yet... */
+    __CFInitialize();
+}

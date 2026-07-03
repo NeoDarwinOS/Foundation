@@ -13,9 +13,38 @@
 #import <Foundation/NSObjCRuntime.h>
 #import <Foundation/NSZone.h>
 
-@protocol NSCopying
+@class NSCoder;
 
+/* ObjC copying protocols, which form the basis for object "copying" */
+@protocol NSCopying
 - (id) copyWithZone:(NSZone *) zone;
+@end
+
+@protocol NSMutableCopying
+- (id) mutableCopyWithZone:(NSZone *) zone;
+@end
+
+/* ObjC coding protocols - encoder/decoder stuff. Probably for KeyedArchiver. */
+@protocol NSCoding
+- (void) encodeWithCoder:(NSCoder *) coder;
+- (nullable instancetype) initWithCoder:(NSCoder *)coder;
+@end
+
+@protocol NSSecureCoding <NSCoding>
+@required @property (class, readonly) BOOL supportsSecureCoding;
+@end
+
+
+
+@interface NSObject (NSCoderMethods)
+
+@property (readonly) Class classForCoder;
+
++ (NSUInteger) version;
++ (void) setVersion:(NSUInteger) version;
+
+- (nullable id) replacementObjectForCoder:(NSCoder *) coder;
+- (nullable id) awakeAfterUsingCoder:(NSCoder *) coder;
 
 @end
 

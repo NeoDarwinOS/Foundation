@@ -36,6 +36,22 @@
 
 #define FOUNDATION_EXPORT FOUNDATION_EXTERN
 
+#if !defined(NS_BLOCKS_AVAILABLE)
+    #if __BLOCKS__
+        #define NS_BLOCKS_AVAILABLE 1
+    #else
+        #define NS_BLOCKS_AVAILABLE 0
+    #endif
+#endif
+
+#if __has_attribute(ns_returns_retained)
+    #define NS_RETURNS_RETAINED __attribute__((ns_returns_retained))
+#endif
+
+#if __has_attribute(ns_returns_not_retained)
+    #define NS_RETURNS_NOT_RETAINED __attribute__((ns_returns_not_retained))
+#endif
+
 /*
  * XX_ENUM & XX_OPTIONS macros, courtesy of CoreFoundation
  */
@@ -73,5 +89,26 @@
 #define NS_ENUM_DEPRECATED(...)
 #define NS_ENUM_DEPRECATED_MAC(...)
 #define NS_ENUM_DEPRECATED_IOS(...)
+
+/* API NOTE: NeoDarwin only targets Darwin 19+, so we really dont care about ancient macOS versions. */
+#if __has_feature(objc_weak_class)
+    #define NS_CLASS_AVAILABLE(...) __attribute__((visibility("default")))
+    #define NS_CLASS_DEPRECATED(...) __attribute__((visibility("default")))
+#else
+    #define NS_CLASS_AVAILABLE(...)
+    #define NS_CLASS_DEPRECATED(...)
+#endif
+
+#if __has_feature(nullability)
+    #define NS_ASSUME_NONNULL_BEGIN _Pragma("clang assume_nonnull begin")
+    #define NS_ASSUME_NONNULL_END _Pragma("clang assume_nonnull end")
+#else
+    #define NS_ASSUME_NONNULL_BEGIN
+    #define NS_ASSUME_NONNULL_END
+#endif
+
+#if !__has_feature(objc_instancetype)
+    #define instancetype id
+#endif
 
 #endif /* ! __FOUNDATION_NSOBJCRUNTIME__ */

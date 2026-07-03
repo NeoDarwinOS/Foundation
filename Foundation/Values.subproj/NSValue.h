@@ -6,14 +6,13 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-#if !defined(__FOUNDATION_NSATTRIBUTEDSTRING__)
-#define __FOUNDATION_NSATTRIBUTEDSTRING__ 1
+#if !defined(__FOUNDATION_NSVALUE__)
+#define __FOUNDATION_NSVALUE__ 1
 
 #import <Foundation/NSObject.h>
-#import <Foundation/NSRange.h>
 
-@interface NSAttributedString : NSObject <NSCopying, NSMutableCopying, NSSecureCoding>
+@interface NSValue : NSObject <NSCopying, NSSecureCoding>
 
 @end
 
-#endif /* ! __FOUNDATION_NSATTRIBUTEDSTRING__ */
+#endif /* ! __FOUNDATION_NSVALUE__ */

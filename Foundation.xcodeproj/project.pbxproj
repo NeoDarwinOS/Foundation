@@ -213,6 +213,16 @@
 		F0D7BDC32FF649DA002F2E15 /* NSObject.h in Headers */ = {isa = PBXBuildFile; fileRef = F0D7BDBC2FF6348B002F2E15 /* NSObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F0D7BDC62FF68D44002F2E15 /* NSZone.h in Headers */ = {isa = PBXBuildFile; fileRef = F0D7BDC52FF68C6E002F2E15 /* NSZone.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F0D7BDC82FF68D82002F2E15 /* NSZone.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D7BDC72FF68D82002F2E15 /* NSZone.m */; };
+		F0D7BDCA2FF72E10002F2E15 /* NSObjCRuntime_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = F0D7BDC92FF72DCB002F2E15 /* NSObjCRuntime_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		F0D7BDCE2FF73C97002F2E15 /* CFFileDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = F0D7BDCC2FF73C97002F2E15 /* CFFileDescriptor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F0D7BDCF2FF73C97002F2E15 /* CFFileDescriptor.c in Sources */ = {isa = PBXBuildFile; fileRef = F0D7BDCD2FF73C97002F2E15 /* CFFileDescriptor.c */; };
+		F0D7BDD22FF74102002F2E15 /* NSValue.h in Headers */ = {isa = PBXBuildFile; fileRef = F0D7BDD12FF740C9002F2E15 /* NSValue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F0D7BDD32FF74108002F2E15 /* NSString.h in Headers */ = {isa = PBXBuildFile; fileRef = F0D7BDB82FF60CEB002F2E15 /* NSString.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F0D7BDD52FF744CB002F2E15 /* NSRange.h in Headers */ = {isa = PBXBuildFile; fileRef = F0D7BDD42FF744B1002F2E15 /* NSRange.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F0D7BDD72FF746D7002F2E15 /* __NSCFString.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D7BDD62FF746D7002F2E15 /* __NSCFString.m */; };
+		F0D7BDDA2FF7489D002F2E15 /* NSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D7BDD92FF7489D002F2E15 /* NSObject.m */; };
+		F0D7BDDC2FF7499C002F2E15 /* NSIntialize.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D7BDDB2FF7499C002F2E15 /* NSIntialize.m */; };
+		F0D7BDE02FF750C1002F2E15 /* NSObject_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = F0D7BDDF2FF7503E002F2E15 /* NSObject_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -423,7 +433,7 @@
 		F0D7BCB32FF4F495002F2E15 /* CFCollections_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFCollections_Internal.h; sourceTree = "<group>"; };
 		F0D7BCB42FF4F495002F2E15 /* CFBag.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFBag.c; sourceTree = "<group>"; };
 		F0D7BCB52FF4F495002F2E15 /* CFStorage.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFStorage.c; sourceTree = "<group>"; };
-		F0D7BCB62FF4F495002F2E15 /* CFDictionary.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFDictionary.c; sourceTree = "<group>"; };
+		F0D7BCB62FF4F495002F2E15 /* CFDictionary.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = CFDictionary.c; sourceTree = "<group>"; };
 		F0D7BCB72FF4F495002F2E15 /* CFBitVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFBitVector.h; sourceTree = "<group>"; };
 		F0D7BCB82FF4F495002F2E15 /* CFArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFArray.c; sourceTree = "<group>"; };
 		F0D7BCB92FF4F495002F2E15 /* CFBasicHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFBasicHash.h; sourceTree = "<group>"; };
@@ -447,6 +457,16 @@
 		F0D7BDC12FF649BF002F2E15 /* __NSCFType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = __NSCFType.m; sourceTree = "<group>"; };
 		F0D7BDC52FF68C6E002F2E15 /* NSZone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSZone.h; sourceTree = "<group>"; };
 		F0D7BDC72FF68D82002F2E15 /* NSZone.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSZone.m; sourceTree = "<group>"; };
+		F0D7BDC92FF72DCB002F2E15 /* NSObjCRuntime_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObjCRuntime_Private.h; sourceTree = "<group>"; };
+		F0D7BDCC2FF73C97002F2E15 /* CFFileDescriptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFFileDescriptor.h; sourceTree = "<group>"; };
+		F0D7BDCD2FF73C97002F2E15 /* CFFileDescriptor.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CFFileDescriptor.c; sourceTree = "<group>"; };
+		F0D7BDD12FF740C9002F2E15 /* NSValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSValue.h; sourceTree = "<group>"; };
+		F0D7BDD42FF744B1002F2E15 /* NSRange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSRange.h; sourceTree = "<group>"; };
+		F0D7BDD62FF746D7002F2E15 /* __NSCFString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = __NSCFString.m; sourceTree = "<group>"; };
+		F0D7BDD82FF746E4002F2E15 /* __NSCFString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = __NSCFString.h; sourceTree = "<group>"; };
+		F0D7BDD92FF7489D002F2E15 /* NSObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObject.m; sourceTree = "<group>"; };
+		F0D7BDDB2FF7499C002F2E15 /* NSIntialize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSIntialize.m; sourceTree = "<group>"; };
+		F0D7BDDF2FF7503E002F2E15 /* NSObject_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject_Private.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -490,6 +510,7 @@
 		F0D7BBCA2FF4F494002F2E15 /* CoreFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				F0D7BDCB2FF73C7D002F2E15 /* FileDescriptor.subproj */,
 				F0D7BDB92FF61DAB002F2E15 /* Bridging.subproj */,
 				F0D7BC142FF4F494002F2E15 /* AppServices.subproj */,
 				F0D7BC7E2FF4F495002F2E15 /* Base.subproj */,
@@ -867,6 +888,7 @@
 		F0D7BDA12FF5D95E002F2E15 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				F0D7BDD02FF740B9002F2E15 /* Values.subproj */,
 				F0D7BDB72FF60CD8002F2E15 /* String.subproj */,
 				F0D7BDA82FF5DACB002F2E15 /* Runtime.subproj */,
 				F0D7BDA32FF5D95E002F2E15 /* Info.plist */,
@@ -880,9 +902,13 @@
 				F0D7BDA22FF5D95E002F2E15 /* Foundation.h */,
 				F0D7BDAA2FF604D6002F2E15 /* FoundationErrors.h */,
 				F0D7BDA92FF5E3D0002F2E15 /* NSObjCRuntime.h */,
+				F0D7BDC92FF72DCB002F2E15 /* NSObjCRuntime_Private.h */,
 				F0D7BDBC2FF6348B002F2E15 /* NSObject.h */,
+				F0D7BDDF2FF7503E002F2E15 /* NSObject_Private.h */,
 				F0D7BDC52FF68C6E002F2E15 /* NSZone.h */,
+				F0D7BDD92FF7489D002F2E15 /* NSObject.m */,
 				F0D7BDC72FF68D82002F2E15 /* NSZone.m */,
+				F0D7BDDB2FF7499C002F2E15 /* NSIntialize.m */,
 			);
 			path = Runtime.subproj;
 			sourceTree = "<group>";
@@ -909,8 +935,28 @@
 			children = (
 				F0D7BDBA2FF61DC2002F2E15 /* __NSCFType.h */,
 				F0D7BDC12FF649BF002F2E15 /* __NSCFType.m */,
+				F0D7BDD82FF746E4002F2E15 /* __NSCFString.h */,
+				F0D7BDD62FF746D7002F2E15 /* __NSCFString.m */,
 			);
 			path = Bridging.subproj;
+			sourceTree = "<group>";
+		};
+		F0D7BDCB2FF73C7D002F2E15 /* FileDescriptor.subproj */ = {
+			isa = PBXGroup;
+			children = (
+				F0D7BDCC2FF73C97002F2E15 /* CFFileDescriptor.h */,
+				F0D7BDCD2FF73C97002F2E15 /* CFFileDescriptor.c */,
+			);
+			path = FileDescriptor.subproj;
+			sourceTree = "<group>";
+		};
+		F0D7BDD02FF740B9002F2E15 /* Values.subproj */ = {
+			isa = PBXGroup;
+			children = (
+				F0D7BDD12FF740C9002F2E15 /* NSValue.h */,
+				F0D7BDD42FF744B1002F2E15 /* NSRange.h */,
+			);
+			path = Values.subproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -935,6 +981,7 @@
 				F0D7BCC82FF4F495002F2E15 /* CFStringEncodingConverterExt.h in Headers */,
 				F0D7BD8B2FF4F495002F2E15 /* CFTree.h in Headers */,
 				F0D7BD732FF4F495002F2E15 /* CFPriv.h in Headers */,
+				F0D7BDCE2FF73C97002F2E15 /* CFFileDescriptor.h in Headers */,
 				F0D7BD0A2FF4F495002F2E15 /* CFXMLParser.h in Headers */,
 				F0D7BCE92FF4F495002F2E15 /* CFStream.h in Headers */,
 				F0D7BD612FF4F495002F2E15 /* CFKnownLocations.h in Headers */,
@@ -1029,10 +1076,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0D7BDE02FF750C1002F2E15 /* NSObject_Private.h in Headers */,
 				F0D7BDC32FF649DA002F2E15 /* NSObject.h in Headers */,
+				F0D7BDCA2FF72E10002F2E15 /* NSObjCRuntime_Private.h in Headers */,
 				F0D7BDC62FF68D44002F2E15 /* NSZone.h in Headers */,
+				F0D7BDD52FF744CB002F2E15 /* NSRange.h in Headers */,
 				F0D7BDAC2FF60576002F2E15 /* FoundationErrors.h in Headers */,
 				F0D7BDAB2FF60571002F2E15 /* NSObjCRuntime.h in Headers */,
+				F0D7BDD22FF74102002F2E15 /* NSValue.h in Headers */,
+				F0D7BDD32FF74108002F2E15 /* NSString.h in Headers */,
 				F0D7BDB62FF60CB9002F2E15 /* NSAttributedString.h in Headers */,
 				F0D7BDA42FF5D95E002F2E15 /* Foundation.h in Headers */,
 			);
@@ -1150,6 +1202,7 @@
 				F0D7BD4A2FF4F495002F2E15 /* CFUniCharPropertyDatabase.S in Sources */,
 				F0D7BCE72FF4F495002F2E15 /* CFConcreteStreams.c in Sources */,
 				F0D7BCC32FF4F495002F2E15 /* CFStringEncodingDatabase.c in Sources */,
+				F0D7BDCF2FF73C97002F2E15 /* CFFileDescriptor.c in Sources */,
 				F0D7BD362FF4F495002F2E15 /* CFDateFormatter.c in Sources */,
 				F0D7BDC22FF649BF002F2E15 /* __NSCFType.m in Sources */,
 				F0D7BD212FF4F495002F2E15 /* CFBundle_Tables.c in Sources */,
@@ -1191,6 +1244,7 @@
 				F0D7BCD22FF4F495002F2E15 /* CFURLComponents_URIParser.c in Sources */,
 				F0D7BD1E2FF4F495002F2E15 /* CFPlugIn_Instance.c in Sources */,
 				F0D7BCD02FF4F495002F2E15 /* CFStringEncodingConverter.c in Sources */,
+				F0D7BDD72FF746D7002F2E15 /* __NSCFString.m in Sources */,
 				F0D7BD402FF4F495002F2E15 /* CFString.c in Sources */,
 				F0D7BD552FF4F495002F2E15 /* CFBurstTrie.c in Sources */,
 				F0D7BD502FF4F495002F2E15 /* CFRegularExpression.c in Sources */,
@@ -1238,6 +1292,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0D7BDC82FF68D82002F2E15 /* NSZone.m in Sources */,
+				F0D7BDDC2FF7499C002F2E15 /* NSIntialize.m in Sources */,
+				F0D7BDDA2FF7489D002F2E15 /* NSObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1271,7 +1327,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_MODULES_AUTOLINK = NO;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -1369,7 +1425,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_MODULES_AUTOLINK = NO;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -1464,7 +1520,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1546,7 +1602,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;

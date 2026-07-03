@@ -6,14 +6,17 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-#if !defined(__FOUNDATION_NSATTRIBUTEDSTRING__)
-#define __FOUNDATION_NSATTRIBUTEDSTRING__ 1
+#if !defined(__FOUNDATION_NSOBJECT_PRIVATE__)
+#define __FOUNDATION_NSOBJECT_PRIVATE__ 1
 
 #import <Foundation/NSObject.h>
-#import <Foundation/NSRange.h>
 
-@interface NSAttributedString : NSObject <NSCopying, NSMutableCopying, NSSecureCoding>
+@interface NSObject (NSPrivate)
+
++ (BOOL) implementsSelector:(SEL) selector;
+
++ (BOOL) instancesImplementSelector:(SEL) selector;
 
 @end
 
-#endif /* ! __FOUNDATION_NSATTRIBUTEDSTRING__ */
+#endif /* ! __FOUNDATION_NSOBJECT_PRIVATE__ */

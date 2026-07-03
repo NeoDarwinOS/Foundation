@@ -23,4 +23,9 @@ FOUNDATION_EXPORT void *NSZoneMalloc(NSZone *zone, NSUInteger size);
 
 FOUNDATION_EXPORT NSZone *NSDefaultMallocZone(void);
 
+/* Other convenience functions provided by Foundation (NSZone) */
+FOUNDATION_EXPORT NSUInteger NSPageSize(void);
+
+FOUNDATION_EXPORT NSUInteger NSLogPageSize(void);
+
 #endif /* ! __FOUNDATION_NSZONE__ */

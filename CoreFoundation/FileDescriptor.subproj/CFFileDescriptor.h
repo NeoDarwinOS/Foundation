@@ -6,7 +6,6 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-#include <CoreFoundation/CFAvailability.h>
 #if !defined (__COREFOUNDATION_CFFILEDESCRIPTOR__)
 #define __COREFOUNDATION_CFFILEDESCRIPTOR__
 
